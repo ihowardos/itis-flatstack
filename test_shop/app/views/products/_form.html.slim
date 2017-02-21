@@ -1,0 +1,38 @@
+.row
+  .col-md-4
+    = form_for product do |f|
+      - if product.errors.any?
+        #error_explanation
+          h2 = "#{pluralize(product.errors.count, "error")} prohibited this product from being saved:"
+          ul
+            - product.errors.full_messages.each do |message|
+              li = message
+      .field
+        = f.label :title
+         -if current_user.manager?
+          = f.text_field :title, class:"form-control", required:"true", disabled: true
+         -else
+          = f.text_field :title, class:"form-control", required:"true"
+      .field
+        = f.label :text
+        = f.text_area :text, class:"form-control", maxlength:"500", rows:"3", required:"true" if current_user.administrator?
+        = f.text_area :text, class:"form-control", maxlength:"500", rows:"3", required:"true", disabled: true if current_user.manager?
+      .field
+        = f.label :price
+        = f.number_field :price, class:"form-control", required:"true"
+      .field
+        = f.label :purchase_price
+        = f.number_field :purchase_price, class:"form-control", required:"true", disabled: true if current_user.manager?
+        = f.number_field :purchase_price, class:"form-control", required:"true" if current_user.administrator?
+      .field
+        = f.label :amount
+        = f.number_field :amount, class:"form-control", required:"true"
+      .characteristics
+        .field
+          = f.label :color
+          = f.select :color, ['none', 'Белый', 'Черный', 'Зеленый', 'Красный', 'Серый', 'Пурпурный', 'Розовый', 'Коричневый', 'Оранжевый', 'Желтый'], {}, { class: 'form-control' }
+        .field
+          = f.label :size
+          = f.select :size, ['none', 'M', 'S', 'L', 'XL', 'XXL'], {}, { include_blank: true, class:"form-control" }
+      .form-action
+        = f.submit class: "btn btn-success"

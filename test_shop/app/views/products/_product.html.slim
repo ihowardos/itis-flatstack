@@ -1,0 +1,22 @@
+ .form-product
+  .thumbnail
+    -if user_signed_in?
+      -if current_user.administrator?
+        .action-destroy
+          =link_to product_path(product.id), method: "delete", data: { confirm: 'Are you sure?' }, class:"close"
+            =image_tag "delete", width: "15"
+    .image
+      =link_to product
+        =image_tag "product-default", class:"thumbnail",  width: "200", style:"margin-bottom:0px;"
+    .caption
+      .title
+        =link_to product.title, product_path(product)
+      p =product.truncated_description
+      .bottom-info
+        .amount
+          = product.current_amount
+        .price
+          = product.price_in_rur
+        .action
+          br =link_to 'В корзину', products_path,  class: "btn  btn-success", role:"button"
+

@@ -1,0 +1,44 @@
+.comment {
+
+  .comment-heading{
+    height: 35px;
+  }
+
+  .panel-heading {
+    padding: 5px 10px 10px 10px;
+  }
+
+  .comment-author {
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 0.3%;
+  }
+
+  .comment-time {
+    float: right;
+    font-size: 10px;
+    color: gray;
+    padding-right: 10px;
+    padding-top: 0.7%;
+  }
+
+  .panel-body {
+    padding: 5px 5px 5px 10px;
+  }
+}
+
+.message-panel {
+  .panel {
+    margin-bottom: 5px;
+    textarea {
+      resize: none;
+    }
+  }
+
+  .action {
+    float: right;
+    padding-top: 0px;
+    padding-bottom: 20px;
+  }
+}

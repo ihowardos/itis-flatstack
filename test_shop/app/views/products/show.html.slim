@@ -1,0 +1,51 @@
+-provide(:title,  product.title)
+=render "navigation"
+
+.container
+  .row
+    .col-md-10.text-center.col-md-offset-1
+      .thumbnail style="max-height: 430px; min-height: 430px; height: 100%;"
+        .admin-action
+          -if user_signed_in?
+            = link_to product_path(product), method: "delete", data: { confirm: 'Are you sure?' }, class:"close"
+              =image_tag "delete", width: "15" if current_user.administrator?
+            =link_to image_tag("edit", width:"14"), edit_product_path, class: "close" if current_user.manager? || current_user.administrator?
+        .image-full
+          = image_tag "product-default", width:"300"
+        .title-full
+          = product.title
+        .description-full
+          p Описание:
+          = product.text
+        .info-full
+          .characteristics
+            .color
+            = "Цвет: #{product.color}" if product.color != "none"
+            .size
+            = "Размер: #{product.size}" if product.size != "none"
+          .price-full
+            = "Цена: #{product.price}"
+          .amount-full
+            = "На складе: #{product.amount}"
+          .action-full
+            .row
+              .col-md-4.text-left
+              =link_to 'В корзину', products_path, class:"btn btn-success"
+
+  .row
+    .col-md-10.col-md-offset-1
+      =render "comments/form" if user_signed_in?
+
+    .comments
+     -if product.comments.exists?
+      =render product.comments.order("created_at DESC")
+     -else
+      .no-comment.col-md-12.text-center
+       .thumbnail.col-md-10.col-md-offset-1
+          p Комментариев нет
+    .col-md-12.text-center
+      - if current_user == nil
+        =link_to('Войдите', new_user_session_path)
+        |, чтобы оставить комментарий
+
+

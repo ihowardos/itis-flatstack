@@ -1,0 +1,14 @@
+.container
+  .col-md-10.col-md-offset-1
+    .panel.panel-default.comment
+      .panel-heading.comment-heading
+        .comment-author
+          =comment.author
+        -if current_user && (comment.author?(current_user.email) || current_user.administrator?)
+          .delete-comment
+            = link_to comment_path(comment), method: "delete", data: { confirm: 'Are you sure?' }, class:"close"
+              =image_tag "delete", width: "15"
+        .comment-time
+          =comment.created_at_h
+      .panel-body
+        =comment.text

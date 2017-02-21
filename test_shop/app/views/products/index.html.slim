@@ -1,0 +1,11 @@
+-provide(:title, 'Главная')
+
+.header
+  = render "navigation"
+
+.container
+  .row
+    -products.each do |product|
+      .col-md-4.text-center
+         =render product
+
