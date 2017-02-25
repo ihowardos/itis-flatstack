@@ -7,10 +7,12 @@
 * Rails 5.0.1
 * Postgresql
 
-Использовались: 
+Использовались:
 
 * Ckeditor (https://github.com/galetahub/ckeditor)
 * Bootstrap-Sass (https://github.com/twbs/bootstrap-sass)
+* FriendlyId + SecureRandom для генерации уникального и читабельного url'a
+
 
 
 
