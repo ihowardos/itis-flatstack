@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
 
-  expose_decorated :blog
+  expose_decorated :blog, find_by: :slug
   expose_decorated :blogs, -> { fetch_blogs }
 
   def index
