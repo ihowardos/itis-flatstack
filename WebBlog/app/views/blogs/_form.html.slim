@@ -1,0 +1,18 @@
+- if blog.errors.any?
+  .errors
+    .alert.alert-warning
+      h3 Все поля должны быть заполнены. Минимальный размер Заголовка - 3 символа, максимальный - 15.
+
+.form
+  = form_for(blog) do |f|
+
+    .fieldset
+      =f.label :title, 'Заголовок'
+      =f.text_field :title, class:"form-control", placeholder:"Название статьи...", autofocus: true, required:"true"
+      br
+
+    .fieldset
+      =f.cktext_area :text
+
+    .actions
+      =f.submit class:"btn btn-success", value:"Create"
