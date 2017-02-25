@@ -1,3 +1,5 @@
 class Blog < ApplicationRecord
-  validates :title, :text, presence: true, length: { maximum: 15, minimum: 3}
+  validates :title, :text, presence: true
+  validates :title,  length: { maximum: 30, minimum: 3 }
+  validates :text,  length: { maximum: 1500 }
 end

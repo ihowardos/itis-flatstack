@@ -1,9 +1,17 @@
 - if blog.errors.any?
   .errors
     .alert.alert-warning
-      h3 Все поля должны быть заполнены. Минимальный размер Заголовка - 3 символа, максимальный - 15.
+       - blog.errors.full_messages.each do |message|
+            li = message
+
+    #error_explanation
+          h2 = "#{pluralize(blog.errors.count, "error")} prohibited this product from being saved:"
+          ul
+            - blog.errors.full_messages.each do |message|
+              li = message
 
 .form
+  =render 'messages'
   = form_for(blog) do |f|
 
     .fieldset

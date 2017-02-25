@@ -1,5 +1,3 @@
-=link_to 'New', new_blog_path
-
-- blogs.each do | blog |
-  = render blog
-
+-blogs.each do | blog |
+  =link_to blog.title, blog
+  br
