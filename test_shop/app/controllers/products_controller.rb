@@ -33,8 +33,8 @@ class ProductsController < ApplicationController
     def fetch_products
       products = Product.all
       if user_signed_in? && current_user.manager?
-      products = products.where("title LIKE ? and amount > 0", "%#{params[:search]}%") if params[:search]  && params[:search] != ""
-      else products = products.where("title LIKE %?%", params[:search]) if params[:search]
+      products = products.where("title ILIKE ? and amount > 0", "%#{params[:search]}%") if params[:search]  && params[:search] != ""
+      else products = products.where("title ILIKE ?", "%#{params[:search]}%") if params[:search]
       end
       products
     end
