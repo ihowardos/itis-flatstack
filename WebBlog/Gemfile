@@ -20,6 +20,9 @@ gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-se
 gem 'ckeditor'
 gem 'paperclip'
 gem 'friendly_id', '~> 5.1.0'
+gem 'passgen'
+gem 'rails-i18n'
+gem 'translit'
 
 
 

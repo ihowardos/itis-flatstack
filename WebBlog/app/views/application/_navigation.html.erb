@@ -20,7 +20,11 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><div class = "create-blog-btn"><a href="../blogs/new" class="btn btn-success" id="create-blog-btn">Создать статью</a></div></li>
+        <li>
+          <div class = "create-blog-btn">
+            <%= link_to "Создать статью", new_blog_path, class: "btn btn-success", id:"create-blog-btn" %>
+          </div>
+        </li>
       </ul>
     </div>
   </div>

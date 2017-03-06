@@ -1,3 +1,29 @@
+.thumbnail-box {
+  padding-top: 2%;
+  .thumbnail {
+    padding: 10px 20px 60px 20px;
+
+    .title {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .text {
+      padding: 0px 15px 30px 15px;
+    }
+
+    .info {
+      text-align: right;
+      font-style:italic;
+      padding: 0px 15px 10px 15px;
+    }
+
+    .action {
+      float: right;
+    }
+  }
+}
+
 .form {
   padding-top: 20px;
 
@@ -7,7 +33,13 @@
 
   .actions {
     padding-top: 10px;
+    padding-bottom: 10px;
     float: right;
+  }
+
+  .check_password {
+        width: 225px;
+        padding-top: 20px;
   }
 }
 

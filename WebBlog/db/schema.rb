@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225171412) do
+ActiveRecord::Schema.define(version: 20170228130220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20170225171412) do
     t.string   "title"
     t.text     "text"
     t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "slug"
+    t.string   "check_password"
+    t.index ["password"], name: "index_blogs_on_password", unique: true, using: :btree
     t.index ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
   end
 

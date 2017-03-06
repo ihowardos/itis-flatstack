@@ -1,3 +1,16 @@
-= raw blog.text
+.thumbnail-box
+  .thumbnail
+    .title
+      h1 =blog.title
+    .text
+      =raw blog.text
 
-=link_to 'edit', edit_blog_path
+    .info
+      hr
+      -if blog.created_at == blog.updated_at
+        p ="Создано: #{blog.created_at_h}"
+      -else
+        p ="Отредактировано: #{blog.created_at_h}"
+    .action
+      =link_to 'Редактировать', edit_blog_path, class:"btn btn-default", style:""
+      //=link_to 'Удалить', blog_path, method:"delete", class:"btn btn-danger"

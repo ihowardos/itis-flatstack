@@ -16,24 +16,30 @@ class BlogsController < ApplicationController
   end
 
   def create
+    password = Passgen::generate
+    blog.password = Digest::MD5.hexdigest(password)
     if blog.save
-      redirect_to blog, success: "Blog was successfully created!"
+      redirect_to blog, success: "Блог успешно был создан! Пароль для редактирования: #{password}"
     else
-      render :new, warning: "Blog has not been created!"
+      render :new
     end
   end
 
   def update
-    if blog.update(blog_params)
-      redirect_to blog, notice: "Blog was successfully updated!"
+    if blog.password == Digest::MD5.hexdigest(params[:blog][:password])
+      if blog.update(blog_params)
+        redirect_to blog, success: "Блог успешно отредактирован!"
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to blog, warning: "Неверный пароль!"
     end
   end
 
   def destroy
     blog.destroy
-    redirect_to root_path, notice: "Blog was successfully destroyed!"
+    redirect_to root_path, success: "Блог успешно был удален!"
   end
 
   private
@@ -43,8 +49,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :text, :password)
+    params.require(:blog).permit(:title, :text)
   end
-
-
 end
