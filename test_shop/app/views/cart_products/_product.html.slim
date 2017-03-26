@@ -1,0 +1,14 @@
+.form-product-cart
+ .caption
+  .title
+    =link_to product.title, product_path(product)
+  p =product.truncated_description
+  .amount
+    = product.current_amount
+  .price
+    = product.price_in_rur
+  .action
+    br =link_to 'Удалить из корзины', cart_product_path(product.id), method: :delete,  class: "btn  btn-danger", role:"button"
+  hr
+  br
+

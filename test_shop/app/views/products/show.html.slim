@@ -30,7 +30,7 @@
           .action-full
             .row
               .col-md-4.text-left
-              =link_to 'В корзину', products_path, class:"btn btn-success"
+              =link_to 'В корзину', new_cart_product_path(product_id: product.id), class:"btn btn-success"
 
   .row
     .col-md-10.col-md-offset-1
@@ -47,5 +47,7 @@
       - if current_user == nil
         =link_to('Войдите', new_user_session_path)
         |, чтобы оставить комментарий
+
+=render 'footer'
 
 

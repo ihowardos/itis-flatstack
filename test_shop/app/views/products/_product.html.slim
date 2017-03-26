@@ -18,5 +18,5 @@
         .price
           = product.price_in_rur
         .action
-          br =link_to 'В корзину', products_path,  class: "btn  btn-success", role:"button"
+          br =link_to 'В корзину', new_cart_product_path(product_id: product.id),  class: "btn  btn-success", role:"button"
 

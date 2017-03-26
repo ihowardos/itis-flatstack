@@ -3,8 +3,6 @@ class CreateOrderedProducts < ActiveRecord::Migration[5.0]
     create_table :ordered_products do |t|
       t.integer :product_id
       t.integer :order_id
-
-      t.timestamps
     end
   end
 end

@@ -18,10 +18,15 @@ gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'draper', github: 'audionerd/draper', branch: 'rails5'
 gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-serializers-xml'
+gem 'activeadmin', '1.0.0.pre5'
+gem 'inherited_resources', '~> 1.7'
 
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'faker'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
 end
 
 group :development do

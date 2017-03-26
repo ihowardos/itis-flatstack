@@ -1,0 +1,12 @@
+.header
+  =render 'navigation'
+
+.container
+  .col-md-12
+    .thumbnail(style="height: auto;")
+      = render collection: products, partial: "cart_products/product"
+
+    .col-md-6
+      =link_to "Создать заказ", new_order_path, class: "btn btn-default"
+
+=render 'footer'
