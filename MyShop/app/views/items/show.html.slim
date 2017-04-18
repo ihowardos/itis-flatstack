@@ -2,20 +2,20 @@ p#notice = notice
 
 p
   strong Title:
-  = @item.title
+  = item.title
 p
   strong Description:
-  = @item.description
+  = item.description
 p
   strong Price:
-  = @item.price
+  = item.price
 p
   strong Purchase price:
-  = @item.purchase_price
+  = item.purchase_price
 p
   strong Amount:
-  = @item.amount
+  = item.amount
 
-= link_to 'Edit', edit_item_path(@item)
+= link_to 'Edit', edit_item_path(item)
 '  |
 = link_to 'Back', items_path
